@@ -81,7 +81,8 @@
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 10px;
-  width: 30%;
+  width: 20%;
+  padding: 0.7272727273vw;
 }
 #main > .main_bg .main_body .left ul li {
   background: rgba(255, 194, 205, 0.4);
@@ -96,5 +97,5 @@
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 10px;
-  width: 70%;
+  width: 80%;
 }/*# sourceMappingURL=style.css.map */
