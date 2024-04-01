@@ -1,0 +1,41 @@
+@charset "UTF-8";
+/****** color ******/
+/****** 컬러 변수  ******/
+/****** mixin ******/
+/****** 모듈 ******/
+.table_style {
+  width: 100%;
+  font-size: 16px;
+}
+.table_style thead tr th {
+  font-weight: bold;
+}
+.paging {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.paging li a {
+  display: block;
+}
+
+/* html */
+/*
+<div className="paging">
+  <ul>
+    <li>
+      <a href="#">aaa1</a>
+    </li>
+    <li>
+      <a href="#">aaa2</a>
+    </li>
+    <li>
+      <a href="#">aaa3</a>
+    </li>
+    <li>
+      <a href="#">aaa4</a>
+    </li>
+  </ul>
+</div>
+*//*# sourceMappingURL=common.css.map */

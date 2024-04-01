@@ -1,0 +1,184 @@
+/****** color ******/
+
+$black: rgb(0 0 0 / 100%);
+$black_1: rgb(0 0 0 / 10%);
+$black_2: rgb(0 0 0 / 20%);
+$black_3: rgb(0 0 0 / 30%);
+$black_4: rgb(0 0 0 / 40%);
+$black_5: rgb(0 0 0 / 50%);
+$black_6: rgb(0 0 0 / 60%);
+$black_7: rgb(0 0 0 / 70%);
+$black_8: rgb(0 0 0 / 80%);
+$black_9: rgb(0 0 0 / 90%);
+
+$white: rgb(255 255 255 / 100%);
+$white_1: rgb(255 255 255 / 10%);
+$white_2: rgb(255 255 255 / 20%);
+$white_3: rgb(255 255 255 / 30%);
+$white_4: rgb(255 255 255 / 40%);
+$white_5: rgb(255 255 255 / 50%);
+$white_6: rgb(255 255 255 / 60%);
+$white_7: rgb(255 255 255 / 70%);
+$white_8: rgb(255 255 255 / 80%);
+$white_9: rgb(255 255 255 / 90%);
+
+$pink_1: #ffc2cd;
+$pink_2: #ff93ac;
+$pink_3: #ff6289;
+$pink_4: #fc3468;
+$pink_5: #ff084a;
+
+/****** 컬러 변수  ******/
+$primary: $pink_1;
+$secondary: $pink_5;
+
+$font-color: $black;
+
+/****** mixin ******/
+
+// 포지션 센터정렬
+@mixin position_center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+// 그리드
+@mixin grid($size, $gap) {
+  display: grid;
+  grid-template-columns: repeat($size, 1fr);
+  gap: vw($gap);
+}
+
+// 플렉스 센터정렬
+@mixin flex_center($type) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @if $type == "" {
+    flex-direction: row;
+  } @else if $type == "row" {
+    flex-direction: row;
+  } @else if $type == "column" {
+    flex-direction: column;
+  } @else if $type == "row-reverse" {
+    flex-direction: row-reverse;
+  } @else if $type == "column-reverse" {
+    flex-direction: column-reverse;
+  }
+}
+
+// 스크롤바
+@mixin scrollbar($size) {
+  /* 아래의 모든 코드는 영역::코드로 사용 */
+  &::-webkit-scrollbar {
+    width: vw($size); /* 스크롤바의 너비 */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    height: 30%; /* 스크롤바의 길이 */
+    background: rgb(255, 255, 255, 0.2); /* 스크롤바의 색상 */
+    border-radius: vw($size);
+    background-clip: padding-box;
+    border: vw(7) solid transparent;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgb(255, 255, 255, 0.1) rgba; /*스크롤바 뒷 배경 색상*/
+  }
+}
+
+// 호버
+@mixin hover($color, $opacity: 1) {
+  border: 1px solid $color;
+  opacity: $opacity;
+}
+
+// 백그라운드
+@mixin background($url, $horizon, $vertical, $size, $opacity:1) {
+  background-image: url($url);
+  background-position-x: $horizon;
+  background-position-y: $vertical;
+  background-size: $size;
+  opacity: $opacity;
+  background-repeat: no-repeat;
+}
+
+// 글래스 백그라운드
+@mixin glas_bg ($color) {
+  background: rgba( $color, 0.4 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border-radius: 10px;
+}
+
+/****** 모듈 ******/
+
+// table
+.table_style {
+  width: 100%;
+  font-size: 16px;
+  thead {
+    tr {
+      th {
+        font-weight: bold;
+      }
+
+      td {
+      }
+    }
+  }
+
+  tbody {
+  }
+
+  tfoot {
+  }
+}
+
+// paging
+.paging {
+  @include flex_center("");
+  li {
+    a {
+      display: block;
+    }
+  }
+}
+
+/* html */
+/*
+<div className="paging">
+  <ul>
+    <li>
+      <a href="#">aaa1</a>
+    </li>
+    <li>
+      <a href="#">aaa2</a>
+    </li>
+    <li>
+      <a href="#">aaa3</a>
+    </li>
+    <li>
+      <a href="#">aaa4</a>
+    </li>
+  </ul>
+</div>
+*/
+
+// modal
+.modal {
+  .modal_head {
+  }
+  .modal_body {
+  }
+  .modal_footer {
+  }
+}
+
+
