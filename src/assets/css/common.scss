@@ -37,13 +37,23 @@ $font-color: $black;
 /****** mixin ******/
 
 // 포지션 센터정렬
-@mixin position_center() {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+@mixin position(
+  $type: "absolute",
+  $top: "50%",
+  $right: "50%",
+  $bottom: "50%",
+  $left: "50%",
+  $t_left: "-50%",
+  $t_top: "-50%",
+  $zindex: "1"
+) {
+  position: $type;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  transform: translate($t_left, $t_top);
+  z-index: $zindex;
 }
 
 // 그리드
@@ -54,21 +64,58 @@ $font-color: $black;
 }
 
 // 플렉스 센터정렬
-@mixin flex_center($type) {
+@mixin flex($type: "", $position-x: "", $position-y: "") {
+  /*
+  // $type = "", "row", "column", "row-reverse", "column-reverse"
+  //
+  // $position-x : "", "left", "center", "right", "between", "around", "evenly"
+  //
+  // $position-y: "", "top", "center", "bottom", "around", "between", "stretch"
+  */
+
   display: flex;
   align-items: center;
-  justify-content: center;
+  text-align: center;
 
+  // 정렬 방향
   @if $type == "" {
     flex-direction: row;
-  } @else if $type == "row" {
-    flex-direction: row;
-  } @else if $type == "column" {
-    flex-direction: column;
-  } @else if $type == "row-reverse" {
-    flex-direction: row-reverse;
-  } @else if $type == "column-reverse" {
-    flex-direction: column-reverse;
+  } @else {
+    flex-direction: $type;
+  }
+
+  // 가로 정렬
+  @if $position-x == "" {
+    justify-content: center;
+  } @else if $position-x == "left" {
+    justify-content: flex-start;
+  } @else if $position-x == "center" {
+    justify-content: center;
+  } @else if $position-x == "right" {
+    justify-content: flex-end;
+  } @else if $position-x == "between" {
+    justify-content: space-between;
+  } @else if $position-x == "around" {
+    justify-content: space-around;
+  } @else if $position-x == "evenly" {
+    justify-content: space-evenly;
+  }
+
+  // 세로 정렬
+  @if $position-y == "" {
+    align-content: center;
+  } @else if $position-y == "top" {
+    align-content: flex-start;
+  } @else if $position-y == "center" {
+    align-content: center;
+  } @else if $position-y == "bottom" {
+    align-content: flex-end;
+  } @else if $position-y == "around" {
+    align-content: space-around;
+  } @else if $position-y == "between" {
+    align-content: space-between;
+  } @else if $position-y == "stretch" {
+    align-content: stretch;
   }
 }
 
@@ -99,7 +146,7 @@ $font-color: $black;
 }
 
 // 백그라운드
-@mixin background($url, $horizon, $vertical, $size, $opacity:1) {
+@mixin background($url, $horizon, $vertical, $size, $opacity: 1) {
   background-image: url($url);
   background-position-x: $horizon;
   background-position-y: $vertical;
@@ -109,12 +156,17 @@ $font-color: $black;
 }
 
 // 글래스 백그라운드
-@mixin glas_bg ($color) {
-  background: rgba( $color, 0.4 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 4px );
-  -webkit-backdrop-filter: blur( 4px );
-  border-radius: 10px;
+@mixin glas_bg($color) {
+  background: rgba($color, 0.25);
+  box-shadow: 0 vw(16) vw(64) 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(vw(4));
+  -webkit-backdrop-filter: blur(vw(8));
+  border-radius: vw(16);
+
+  // backdrop-filter: blur(5px);
+  // background-color: rgba($color, 1);
+  // border-radius: 26px;
+  // box-shadow: 35px 35px 68px 0px rgba($color, 0.5), inset -8px -8px 16px 0px rgba(255, 194, 205, 0.6), inset 0px 11px 28px 0px rgb(255, 255, 255);
 }
 
 /****** 모듈 ******/
@@ -122,7 +174,7 @@ $font-color: $black;
 // table
 .table_style {
   width: 100%;
-  font-size: 16px;
+  font-size: vw(16);
   thead {
     tr {
       th {
@@ -143,7 +195,7 @@ $font-color: $black;
 
 // paging
 .paging {
-  @include flex_center("");
+  // @include flex();
   li {
     a {
       display: block;
@@ -180,5 +232,3 @@ $font-color: $black;
   .modal_footer {
   }
 }
-
-

@@ -5,47 +5,124 @@
 // $mobile-size: 1100 !global; // 미디어 쿼리에 기준이 되는 수치
 
 body {
+  background-color: #e1e1e1;
+}
+
+#root {
+  max-width: 367px;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+
+  background-color: #fff;
+  box-shadow: 2px 2px 5px 5px rgb(0 0 0 / 37%);
 }
 
 .container {
-  width: 1200px;
-  padding: 0 40px;
+  width: 100%;
+  padding: 0 vw(4);
   margin: 0 auto;
 }
 
 #main {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
-  overflow: hidden;
 
   > .main_bg {
-    @include background("/public/img/main_bg.png", center, center, cover, 1);
+    // @include background("/public/img/main_bg.png", center, center, cover, 1);
     width: 100%;
     height: 100%;
     position: relative;
 
     .main_body {
-      @include position_center;
-      width: 80%;
-      height: 80%;
-      display: flex;
-      gap: vw(36);
+      position: relative;
+      @include flex();
+      width: 100%;
+      height: 100%;
+      
+        background-color: #000;
 
-      .left {
-        @include glas_bg($pink_1);
-        width: 20%;
-        padding: vw(8);
+      .con_img {
+        width: 100%;
+        height: calc(100% - vw(36));
+        overflow: hidden;
+        // @include position(fixed, 0, 50%, auto, 50%, -50%, 0%,1);
+        @include flex(row);
+        background-color: #000;
+        cursor: pointer;
+        gap: vw(1);
+        
+        .swiper  {
+          height: 100%;
+          width: 100%;
+          padding: 14%;
+        }
 
-        ul {
-          li {
-            @include glas_bg($pink_1);
+        .swiper-pagination {
+          bottom: 0;
+        }
+
+        img {
+          height: 100%;
+          width: 100%;
+          opacity: 0.3;
+
+          &:hover {
+            opacity: 1;
           }
         }
       }
+    }
+  }
+}
 
-      .right {
-        @include glas_bg($pink_1);
-        width: 80%;
+#gnb {
+  @include position(fixed, 0, 50%, auto, 50%, -50%, 0%,1);
+  max-width: 367px;
+  background: linear-gradient(45deg, #859398, #283048) ;
+  height: vw(16);
+  width: 100%;
+  
+  div {
+    @include flex(flex, left, center);
+    
+    height: 100%;
+    cursor: pointer;
+
+    img {
+      width: vw(24);
+    }
+  }
+  
+}
+
+#TabBar {
+  @include position(fixed, auto, 50%, 0%, 50%, -50%, 0%,1);
+
+  max-width: 367px;
+  background: linear-gradient(45deg, #859398, #283048) ;
+  height: vw(16);
+  width: 100%;
+  border-radius: vw(4) vw(4) 0 0;
+
+  ul{
+    @include flex();
+    
+      height: 100%;
+
+    li {
+      @include flex();
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+      flex: 1;
+      color: #fff;
+      
+
+      &:hover {
+        border-radius: vw(4);
+        background: linear-gradient(45deg, #859398, #283048) ;
       }
     }
   }

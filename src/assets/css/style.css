@@ -7,16 +7,10 @@
 /****** 모듈 ******/
 .table_style {
   width: 100%;
-  font-size: 16px;
+  font-size: 4.3596730245vw;
 }
 .table_style thead tr th {
   font-weight: bold;
-}
-.paging {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
 }
 .paging li a {
   display: block;
@@ -41,61 +35,177 @@
   </ul>
 </div>
 */
+body {
+  background-color: #e1e1e1;
+}
+
+#root {
+  max-width: 367px;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  background-color: #fff;
+  box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.37);
+}
+
 .container {
-  width: 1200px;
-  padding: 0 40px;
+  width: 100%;
+  padding: 0 1.0899182561vw;
   margin: 0 auto;
 }
 
 #main {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
-  overflow: hidden;
 }
 #main > .main_bg {
-  background-image: url("/public/img/main_bg.png");
-  background-position-x: center;
-  background-position-y: center;
-  background-size: cover;
-  opacity: 1;
-  background-repeat: no-repeat;
   width: 100%;
   height: 100%;
   position: relative;
 }
 #main > .main_bg .main_body {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  width: 80%;
-  height: 80%;
+  position: relative;
+  /*
+  // $type = "", "row", "column", "row-reverse", "column-reverse"
+  //
+  // $position-x : "", "left", "center", "right", "between", "around", "evenly"
+  //
+  // $position-y: "", "top", "center", "bottom", "around", "between", "stretch"
+  */
   display: flex;
-  gap: 3.2727272727vw;
+  align-items: center;
+  text-align: center;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
 }
-#main > .main_bg .main_body .left {
-  background: rgba(255, 194, 205, 0.4);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-radius: 10px;
-  width: 20%;
-  padding: 0.7272727273vw;
+#main > .main_bg .main_body .con_img {
+  width: 100%;
+  height: calc(100% - 9.8092643052vw);
+  overflow: hidden;
+  /*
+  // $type = "", "row", "column", "row-reverse", "column-reverse"
+  //
+  // $position-x : "", "left", "center", "right", "between", "around", "evenly"
+  //
+  // $position-y: "", "top", "center", "bottom", "around", "between", "stretch"
+  */
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  background-color: #000;
+  cursor: pointer;
+  gap: 0.272479564vw;
 }
-#main > .main_bg .main_body .left ul li {
-  background: rgba(255, 194, 205, 0.4);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-radius: 10px;
+#main > .main_bg .main_body .con_img .swiper {
+  height: 100%;
+  width: 100%;
+  padding: 14%;
 }
-#main > .main_bg .main_body .right {
-  background: rgba(255, 194, 205, 0.4);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-radius: 10px;
-  width: 80%;
+#main > .main_bg .main_body .con_img .swiper-pagination {
+  bottom: 0;
+}
+#main > .main_bg .main_body .con_img img {
+  height: 100%;
+  width: 100%;
+  opacity: 0.3;
+}
+#main > .main_bg .main_body .con_img img:hover {
+  opacity: 1;
+}
+
+#gnb {
+  position: fixed;
+  top: 0;
+  right: 50%;
+  bottom: auto;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  z-index: 1;
+  max-width: 367px;
+  background: linear-gradient(45deg, #859398, #283048);
+  height: 4.3596730245vw;
+  width: 100%;
+}
+#gnb div {
+  /*
+  // $type = "", "row", "column", "row-reverse", "column-reverse"
+  //
+  // $position-x : "", "left", "center", "right", "between", "around", "evenly"
+  //
+  // $position-y: "", "top", "center", "bottom", "around", "between", "stretch"
+  */
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: flex;
+  justify-content: flex-start;
+  align-content: center;
+  height: 100%;
+  cursor: pointer;
+}
+#gnb div img {
+  width: 6.5395095368vw;
+}
+
+#TabBar {
+  position: fixed;
+  top: auto;
+  right: 50%;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  z-index: 1;
+  max-width: 367px;
+  background: linear-gradient(45deg, #859398, #283048);
+  height: 4.3596730245vw;
+  width: 100%;
+  border-radius: 1.0899182561vw 1.0899182561vw 0 0;
+}
+#TabBar ul {
+  /*
+  // $type = "", "row", "column", "row-reverse", "column-reverse"
+  //
+  // $position-x : "", "left", "center", "right", "between", "around", "evenly"
+  //
+  // $position-y: "", "top", "center", "bottom", "around", "between", "stretch"
+  */
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  height: 100%;
+}
+#TabBar ul li {
+  /*
+  // $type = "", "row", "column", "row-reverse", "column-reverse"
+  //
+  // $position-x : "", "left", "center", "right", "between", "around", "evenly"
+  //
+  // $position-y: "", "top", "center", "bottom", "around", "between", "stretch"
+  */
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  color: #fff;
+}
+#TabBar ul li:hover {
+  border-radius: 1.0899182561vw;
+  background: linear-gradient(45deg, #859398, #283048);
 }/*# sourceMappingURL=style.css.map */

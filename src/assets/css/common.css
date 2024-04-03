@@ -5,16 +5,10 @@
 /****** 모듈 ******/
 .table_style {
   width: 100%;
-  font-size: 16px;
+  font-size: vw(16);
 }
 .table_style thead tr th {
   font-weight: bold;
-}
-.paging {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
 }
 .paging li a {
   display: block;
