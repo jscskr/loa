@@ -55,6 +55,31 @@ body {
   margin: 0 auto;
 }
 
+.contents_body {
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  position: relative;
+  /*
+  // $type = "", "row", "column", "row-reverse", "column-reverse"
+  //
+  // $position-x : "", "left", "center", "right", "between", "around", "evenly"
+  //
+  // $position-y: "", "top", "center", "bottom", "around", "between", "stretch"
+  */
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+}
+
+#login {
+  color: #fff;
+  font-weight: 700;
+}
+
 #main {
   width: 100%;
   height: 100vh;

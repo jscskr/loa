@@ -4,6 +4,7 @@ import "./assets/css/style.css";
 // import App from './App';
 
 import Main from "./views/Main";
+import Login from "./components/member/login";
 import Gnb from "./components/inc/Gnb";
 import TabBar from "./components/inc/TabBar";
 
@@ -13,7 +14,11 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Gnb />
-    <Main />
+    <div style={{ display: "none" }}>
+      {/* Main 컴포넌트를 숨기는 div */}
+      <Main />
+    </div>
+    <Login />
     <TabBar />
   </React.StrictMode>
 );
