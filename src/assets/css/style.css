@@ -42,9 +42,11 @@ body {
 #root {
   max-width: 367px;
   width: 100%;
+  height: 100vh;
   margin: 0 auto;
   overflow: hidden;
   position: relative;
+  padding: 4.3596730245vw 0;
   background-color: #fff;
   box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.37);
 }
@@ -57,7 +59,7 @@ body {
 
 .contents_body {
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 6.5395095368vw);
   background-color: #000;
   position: relative;
   /*
@@ -73,13 +75,62 @@ body {
   flex-direction: row;
   justify-content: center;
   align-content: center;
+  /*
+  @include background(
+    "/public/img/contents/member/login.png",
+    center,
+    center,
+    cover,
+    1
+  );
+  */
+}
+.contents_body:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.3;
+}
+
+.input_area {
+  box-shadow: 0px 0px 3px 3px #859398;
+  border-radius: 0.5449591281vw;
+}
+
+.input {
+  width: 100%;
+  height: 2.1798365123vw;
+  border-radius: 0.5449591281vw;
+  border: 0px;
+  padding: 0.5449591281vw;
+}
+.input:focus {
+  outline: none;
 }
 
 #login {
+  width: 80%;
+  position: absolute;
+  top: 20%;
+  right: 50%;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  z-index: 1;
   color: #fff;
   font-weight: 700;
 }
-
+#login .login_body > div {
+  margin-bottom: 1.0899182561vw;
+}
+#login .login_body > div > div:first-child {
+  text-align: left;
+  margin-bottom: 0.5449591281vw;
+}
 #main {
   width: 100%;
   height: 100vh;
@@ -110,7 +161,7 @@ body {
 }
 #main > .main_bg .main_body .con_img {
   width: 100%;
-  height: calc(100% - 9.8092643052vw);
+  height: 80%;
   overflow: hidden;
   /*
   // $type = "", "row", "column", "row-reverse", "column-reverse"
@@ -154,7 +205,7 @@ body {
   left: 50%;
   transform: translate(-50%, 0%);
   z-index: 1;
-  max-width: 367px;
+  max-width: 368px;
   background: linear-gradient(45deg, #859398, #283048);
   height: 4.3596730245vw;
   width: 100%;
@@ -188,7 +239,7 @@ body {
   left: 50%;
   transform: translate(-50%, 0%);
   z-index: 1;
-  max-width: 367px;
+  max-width: 368px;
   background: linear-gradient(45deg, #859398, #283048);
   height: 4.3596730245vw;
   width: 100%;
@@ -229,8 +280,82 @@ body {
   height: 100%;
   flex: 1;
   color: #fff;
+  font-size: 1.0899182561vw;
 }
 #TabBar ul li:hover {
   border-radius: 1.0899182561vw;
   background: linear-gradient(45deg, #859398, #283048);
+}
+
+#Floating {
+  /*
+  // $type = "", "row", "column", "row-reverse", "column-reverse"
+  //
+  // $position-x : "", "left", "center", "right", "between", "around", "evenly"
+  //
+  // $position-y: "", "top", "center", "bottom", "around", "between", "stretch"
+  */
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  position: absolute;
+  top: auto;
+  right: 2.1798365123vw;
+  bottom: 6.5395095368vw;
+  left: auto;
+  transform: translate(0%, 0%);
+  z-index: 99;
+  border-radius: 4.3596730245vw;
+  width: 4.3596730245vw;
+  height: 4.3596730245vw;
+  background: linear-gradient(45deg, #859398, #283048);
+  color: #fff;
+}
+#Floating .floating_body {
+  position: relative;
+}
+#Floating .floating_body .main_float {
+  cursor: pointer;
+}
+#Floating .floating_body .floating_side {
+  /*
+  // $type = "", "row", "column", "row-reverse", "column-reverse"
+  //
+  // $position-x : "", "left", "center", "right", "between", "around", "evenly"
+  //
+  // $position-y: "", "top", "center", "bottom", "around", "between", "stretch"
+  */
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  position: absolute;
+  cursor: pointer;
+  border-radius: 4.3596730245vw;
+  width: 3.2697547684vw;
+  height: 3.2697547684vw;
+  background: linear-gradient(45deg, #859398, #283048);
+  color: #fff;
+  font-size: 0.5449591281vw;
+}
+#Floating .floating_body .floating_side:nth-child(2) {
+  bottom: 3.5422343324vw;
+  right: -2.7247956403vw;
+}
+#Floating .floating_body .floating_side:nth-child(3) {
+  bottom: 3.8147138965vw;
+  right: 0.9536784741vw;
+}
+#Floating .floating_body .floating_side:nth-child(4) {
+  bottom: 1.3623978202vw;
+  right: 4.0871934605vw;
+}
+#Floating .floating_body .floating_side:nth-child(5) {
+  bottom: -2.7247956403vw;
+  right: 3.5422343324vw;
 }/*# sourceMappingURL=style.css.map */

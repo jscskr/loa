@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import main_01 from "../assets/img/gun_01.png";
 import main_02 from "../assets/img/gun_02.png";
@@ -8,21 +8,40 @@ import main_05 from "../assets/img/gun_05.png";
 import main_06 from "../assets/img/gun_06.png";
 
 // Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/effect-coverflow';
-import 'swiper/css/pagination';
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
 
 // import required modules
 import { EffectCoverflow, Pagination } from "swiper/modules";
 
 function Main() {
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("api/api.php?idx=2");
+        const jsonData = await response.json();
+        setData(jsonData);
+        console.log(jsonData);
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <div id="main">
       <div className="main_bg">
         <div className="main_body">
+          <div style={{ color: "white" }}>
+            데이터 있니?
+            {data && <pre>{JSON.stringify(data, null, 2)}</pre>}
+          </div>
           <div className="con_img">
             <Swiper
               effect={"coverflow"}

@@ -1,29 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./assets/css/style.css";
 // import App from './App';
 
 import Main from "./views/Main";
-import Login from "./components/member/login";
+import Login from "./components/member/Login";
 import Gnb from "./components/inc/Gnb";
 import TabBar from "./components/inc/TabBar";
-
+import Floating from "./components/inc/Floating";
 import reportWebVitals from "./reportWebVitals";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <React.StrictMode>
-    <Gnb />
-    <div style={{ display: "none" }}>
-      {/* Main 컴포넌트를 숨기는 div */}
-      <Main />
-    </div>
-    <Login />
-    <TabBar />
-  </React.StrictMode>
-);
+const App = () => {
+  const [isVisible, setVisible] = useState(false);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+  return (
+    <React.StrictMode>
+      <Gnb />
+      <Main />
+      {isVisible && <Login />}
+      <Floating />
+
+      <TabBar />
+    </React.StrictMode>
+  );
+};
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);
+
 reportWebVitals();

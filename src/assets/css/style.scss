@@ -11,9 +11,11 @@ body {
 #root {
   max-width: 367px;
   width: 100%;
+  height: 100vh;
   margin: 0 auto;
   overflow: hidden;
   position: relative;
+  padding: vw(16) 0;
 
   background-color: #fff;
   box-shadow: 2px 2px 5px 5px rgb(0 0 0 / 37%);
@@ -27,16 +29,67 @@ body {
 
 .contents_body {
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - vw(24));
   background-color: #000;
 
   position: relative;
   @include flex();
+  /*
+  @include background(
+    "/public/img/contents/member/login.png",
+    center,
+    center,
+    cover,
+    1
+  );
+  */
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.3;
+  }
+}
+.input_area {
+  box-shadow: 0px 0px 3px 3px #859398;
+  border-radius: vw(2);
+}
+
+.input {
+  width: 100%;
+  height: vw(8);
+  border-radius: vw(2);
+  border: 0px;
+  padding: vw(2);
+
+  &:focus {
+    outline: none;
+  }
 }
 
 #login {
+  // position: absolute;
+  width: 80%;
+  @include position(absolute, 20%, 50%, 50%, 50%, -50%, 50%, 1);
   color: #fff;
   font-weight: 700;
+
+  .login_body {
+    > div {
+      margin-bottom: vw(4);
+      > div:first-child {
+        text-align: left;
+        margin-bottom: vw(2);
+      }
+      > div:last-child {
+      }
+    }
+  }
 }
 
 #main {
@@ -59,7 +112,7 @@ body {
 
       .con_img {
         width: 100%;
-        height: calc(100% - vw(36));
+        height: 80%;
         overflow: hidden;
         // @include position(fixed, 0, 50%, auto, 50%, -50%, 0%,1);
         @include flex(row);
@@ -93,7 +146,7 @@ body {
 
 #gnb {
   @include position(fixed, 0, 50%, auto, 50%, -50%, 0%, 1);
-  max-width: 367px;
+  max-width: 368px;
   background: linear-gradient(45deg, #859398, #283048);
   height: vw(16);
   width: 100%;
@@ -113,7 +166,7 @@ body {
 #TabBar {
   @include position(fixed, auto, 50%, 0%, 50%, -50%, 0%, 1);
 
-  max-width: 367px;
+  max-width: 368px;
   background: linear-gradient(45deg, #859398, #283048);
   height: vw(16);
   width: 100%;
@@ -131,10 +184,60 @@ body {
       height: 100%;
       flex: 1;
       color: #fff;
+      font-size: vw(4);
 
       &:hover {
         border-radius: vw(4);
         background: linear-gradient(45deg, #859398, #283048);
+      }
+    }
+  }
+}
+
+#Floating {
+  @include flex();
+  @include position(absolute, auto, vw(8), vw(24), auto, 0%, 0%, 99);
+
+  // overflow: hidden;
+  border-radius: vw(16);
+  width: vw(16);
+  height: vw(16);
+  background: linear-gradient(45deg, #859398, #283048);
+  color: #fff;
+
+  .floating_body {
+    position: relative;
+
+    .main_float {
+      cursor: pointer;
+    }
+
+    .floating_side {
+      @include flex();
+      position: absolute;
+      cursor: pointer;
+      border-radius: vw(16);
+      width: vw(12);
+      height: vw(12);
+      background: linear-gradient(45deg, #859398, #283048);
+      color: #fff;
+      font-size: vw(2);
+
+      &:nth-child(2) {
+        bottom: vw(13);
+        right: vw(-10);
+      }
+      &:nth-child(3) {
+        bottom: vw(14);
+        right: vw(3.5);
+      }
+      &:nth-child(4) {
+        bottom: vw(5);
+        right: vw(15);
+      }
+      &:nth-child(5) {
+        bottom: vw(-10);
+        right: vw(13);
       }
     }
   }
