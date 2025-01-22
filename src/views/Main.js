@@ -60,7 +60,7 @@ function Main() {
               className="mySwiper"
             >
               <SwiperSlide>
-                <img src={main_01} alt="이미지" />
+                <img src={main_01} alt="이미지1" />
               </SwiperSlide>
               <SwiperSlide>
                 <img src={main_02} alt="이미지" />
